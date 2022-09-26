@@ -1,0 +1,8 @@
+{
+    "hooks": [
+        {
+            "name": "dw.order.calculate",
+            "script": "./hooks/customCalculate.js"
+        }
+    ]
+}

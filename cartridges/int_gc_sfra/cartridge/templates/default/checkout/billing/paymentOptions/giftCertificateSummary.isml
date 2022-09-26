@@ -1,0 +1,4 @@
+<!-- NOTE: This content can also come from giftCard.js -->
+<span>${Resource.msg('label.giftCardType', 'checkout', null)}</span>
+<div>${payment.maskedGiftCertificateCode}</div>
+<div><span></span></div>

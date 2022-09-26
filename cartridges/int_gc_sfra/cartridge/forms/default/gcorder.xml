@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19"
+      validation="${require('~/cartridge/scripts/forms/gcOrderValidator').validateForm(formgroup);}"
+>
+
+    <field formid="from" label="forms.giftcert.purchase.from.label" type="string" mandatory="true"
+           description="forms.giftcert.purchase.from.description"
+           missing-error="forms.giftcert.purchase.from.missing-error"
+           binding="from"/>
+    <field formid="recipient" label="forms.giftcert.purchase.recipient.label" type="string" mandatory="true"
+           description="forms.giftcert.purchase.recipient.description"
+           missing-error="forms.giftcert.purchase.recipient.missing-error"
+           binding="recipient"/>
+    <field formid="recipientEmail" label="forms.giftcert.purchase.recipientemail.label" type="string" mandatory="true"
+           description="forms.giftcert.purchase.recipientemail.description"
+           regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+           binding="recipientEmail"
+           parse-error="forms.giftcert.purchase.recipientemail.parse-error"
+           missing-error="forms.giftcert.purchase.recipientemail.missing-error"
+           value-error="forms.giftcert.purchase.recipientemail.value-error"/>
+    <field formid="confirmRecipientEmail" label="forms.giftcert.purchase.confirmrecipientemail.label" type="string"
+           mandatory="true"
+           description="forms.giftcert.purchase.confirmrecipientemail.description"
+           regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+           binding="confirmRecipientEmail"
+           parse-error="forms.giftcert.purchase.confirmrecipientemail.parse-error"
+           missing-error="forms.giftcert.purchase.confirmrecipientemail.missing-error"
+           value-error="forms.giftcert.purchase.confirmrecipientemail.value-error"/>
+    <field formid="message" label="forms.giftcert.purchase.message.label" type="string" mandatory="false"
+           description="forms.giftcert.purchase.message.description"
+           binding="message"/>
+    <field formid="amount" label="forms.giftcert.purchase.amount.label" type="number" mandatory="true"
+           description="forms.giftcert.purchase.amount.description"
+           binding="amount"
+           parse-error="forms.giftcert.purchase.amount.parse-error"
+           missing-error="forms.giftcert.purchase.amount.missing-error"
+           value-error="forms.giftcert.purchase.amount.value-error"
+           validation="${require('~/cartridge/scripts/forms/gcOrderValidator').validateAmount(formfield);}"/>
+
+</form>

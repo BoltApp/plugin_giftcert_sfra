@@ -1,0 +1,41 @@
+<isif condition="${pdict.recaptchaRequired === true}">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</isif>
+
+<form autocomplete="off" id="gift-card-form" action="${URLUtils.url('CheckoutServices-SubmitGiftcard')}" method="post" <isprint value="${pdict.forms.giftForm.attributes}" encoding="off" />>
+
+    <div class="giftcard-error"></div>
+
+    <isif condition="${pdict.recaptchaRequired === true}">
+    <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="${pdict.recaptchaSiteKey}"></div>
+    </div>
+    </isif>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="giftCertID">
+            <isprint value="${pdict.forms.giftForm.giftCertID.label}" encoding="htmlcontent" />
+        </label>
+        <input class="form-control" id="giftCertID" autocomplete="off"
+            <isprint value="${pdict.forms.giftForm.giftCertID.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <isif condition="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('GCPinActivateField')}">
+    <div class="form-group required">
+        <label class="form-control-label" for="giftCertPin">
+            <isprint value="${pdict.forms.giftForm.giftCertPin.label}" encoding="htmlcontent" />
+        </label>
+        <input type="number" class="form-control" id="giftCertPin" autocomplete="off" required
+            <isprint value="${pdict.forms.giftForm.giftCertPin.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+    </isif>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-block btn-outline-primary" id="add-gift-card-btn" value="${Resource.msg('button.add.giftCard', 'checkout', null)}"/>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+<!-- Based on checkout/productCard/productCard.isml -->
+<div class="product-line-item" data-product-line-item="${lineItem.UUID}">
+    <div class="line-item-header">
+        <isinclude template="checkout/productCard/giftCertificateNameAndRemove" />
+    </div>
+
+    <div class="product-line-item-details d-flex flex-row">
+        <div class="item-image">
+            <img class="product-image" src="${URLUtils.staticURL('/images/gift_cert.gif')}" alt="Gift Card Purchase" title="Gift Card Purchase">
+        </div>
+    </div>
+
+    <div><hr class="line-item-divider"></div>
+
+    <div class="row align-items-start">
+        <div class="col-4 line-item-unit-price">
+            <p class="line-item-pricing-info">
+                <span class="line-item-total-text unit-price-label">
+                    ${Resource.msg('label.each.item.price','cart',null)}
+                </span><br/>
+                <div class="price">
+                    <span>
+                        <span class="sales">
+                            <span class="value">${lineItem.priceTotal.price}</span>
+                        </span>
+                    </span>
+                </div>
+            </p>
+        </div>
+        <div class="col-4 line-item-quantity justify-content-center flex">
+            <p class="line-item-pricing-info">
+                <span class="line-item-total-text qty-card-quantity-label">
+                ${Resource.msg('field.selectquantity','cart',null)}
+                </span><br/>
+                <span class="pricing qty-card-quantity-count">1</span>
+            </p>
+        </div>
+        <!--- line item total price --->
+        <div class="col-4 line-item-total-price justify-content-end">
+            <p class="line-item-pricing-info">
+                <span class="line-item-total-text line-item-total-price-label">
+                    ${Resource.msg('label.total.price','cart',null)}
+                </span>
+            </p>
+            <div class="item-total-${lineItem.UUID} price">
+                <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+            </div>
+        </div>
+    </div>
+</div>

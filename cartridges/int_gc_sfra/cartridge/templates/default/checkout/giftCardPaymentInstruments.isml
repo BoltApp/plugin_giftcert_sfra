@@ -1,0 +1,14 @@
+<div id="gift-payment-methods" class="mb-4">
+    <isloop items="${pdict.giftCardPaymentInstruments}" var="paymentInstrument" status="loopState">
+        <div class="row giftcard-payment-instrument" data-uuid="${paymentInstrument.UUID}">
+            <div class="giftcard-payment-information col-6 col-md-9">
+                <span>
+                    ${Resource.msgf('label.appliedGiftCard', 'checkout', 'Missing translation', paymentInstrument.getMaskedGiftCertificateCode(), paymentInstrument.paymentTransaction.amount.toFormattedString())}
+                    <a href="${URLUtils.url('CheckoutServices-RemoveGiftcard', 'uuid', paymentInstrument.UUID, pdict.csrf.tokenName, pdict.csrf.token)}" class="remove-giftcard-paymentinstrument">
+                        ${Resource.msg('label.removeGiftCard', 'checkout', 'Remove')}
+                    </a>
+                </span>
+            </div>
+        </div>
+    </isloop>
+</div>

@@ -1,0 +1,5 @@
+<isif condition="${pdict.isEnrolled}">
+  <isinclude template="account/loyalty/statusCard"/>
+<iselse/>
+  <isinclude template="account/loyalty/enrollmentCard"/>
+</isif>

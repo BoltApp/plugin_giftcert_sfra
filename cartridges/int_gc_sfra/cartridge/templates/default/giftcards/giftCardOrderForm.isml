@@ -1,0 +1,80 @@
+<form action="${URLUtils.url('Giftcards-PurchaseResult')}" class="gc-order-form" method="POST" <isprint value="${pdict.gcOrderForm.attributes}" encoding="off" />>
+
+    <isif condition="${pdict.gcOrderForm.base.error}">
+        <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <isprint value="${pdict.gcOrderForm.base.error}" encoding="htmlcontent"/>
+        </div>
+    </isif>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="from">
+            <isprint value="${pdict.gcOrderForm.from.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" id="from" autocomplete="off"
+        <isif condition="${!pdict.gcOrderForm.amount.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            <isprint value="${pdict.gcOrderForm.from.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="recipient">
+            <isprint value="${pdict.gcOrderForm.recipient.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" id="recipient" autocomplete="off"
+            <isif condition="${!pdict.gcOrderForm.recipient.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            <isprint value="${pdict.gcOrderForm.recipient.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="recipientEmail">
+            <isprint value="${pdict.gcOrderForm.recipientEmail.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" id="recipientEmail" autocomplete="off"
+            <isif condition="${!pdict.gcOrderForm.recipientEmail.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            <isprint value="${pdict.gcOrderForm.recipientEmail.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="confirmRecipientEmail">
+            <isprint value="${pdict.gcOrderForm.confirmRecipientEmail.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" id="confirmRecipientEmail" autocomplete="off"
+            <isif condition="${!pdict.gcOrderForm.confirmRecipientEmail.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            <isprint value="${pdict.gcOrderForm.confirmRecipientEmail.attributes}" encoding="off" />>
+        <div class="invalid-feedback"><isprint value="${pdict.gcOrderForm.confirmRecipientEmail.error}" encoding="htmlcontent" /></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="message">
+            <isprint value="${pdict.gcOrderForm.message.label}" encoding="htmlcontent" />
+        </label>
+        <textarea id="message" rows="4" maxlength="250" autocomplete="off"
+            <isif condition="${!pdict.gcOrderForm.message.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            <isprint value="${pdict.gcOrderForm.message.attributes}" encoding="off" />></textarea>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group required">
+        <label class="form-control-label" for="amount">
+            <isprint value="${pdict.gcOrderForm.amount.label}" encoding="htmlcontent" />
+        </label>
+        <input type="number" <isif condition="${!pdict.gcOrderForm.amount.valid}">class="form-control is-invalid"<iselse/>class="form-control"</isif>
+            id="amount" autocomplete="off"
+            min="5"
+            max="5000"
+            <isprint value="${pdict.gcOrderForm.amount.attributes}" encoding="off" />>
+        <div class="invalid-feedback"><isprint value="${pdict.gcOrderForm.amount.error}" encoding="htmlcontent" /></div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+    <div class="row">
+        <div class="col">
+            <button name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.form.giftCardOrder', 'giftCardOrder', null)}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+<div class="card product-info uuid-${lineItem.UUID}">
+    <!--- name and remove buttons --->
+    <isinclude template="cart/productCard/cartProductCardHeader" />
+
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-lg-12 d-flex flex-row">
+                    <div class="item-image">
+                        <img class="product-image" src="${URLUtils.staticURL('/images/gift_cert.gif')}" alt="Gift Card Purchase" title="Gift Card Purchase">
+                    </div>
+                    <div class="item-attributes d-flex flex-column">
+                        <p class="line-item-attributes">${Resource.msg('label.giftCardEmailDeliveryMessage','checkout',null)}</p>
+                        <p class="line-item-attributes">To: ${lineItem.recipientName}, ${lineItem.recipientEmail}</p>
+                        <p class="line-item-attributes">From: ${lineItem.senderName}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-lg-none"><hr class="line-item-divider"></div>
+
+        <isinclude template="cart/productCard/cartGiftCertificatePriceCard" />
+
+        <div class="hidden-md-down">
+            <isinclude template="components/deleteGiftCertificateButton" />
+        </div>
+
+    </div>
+
+</div>

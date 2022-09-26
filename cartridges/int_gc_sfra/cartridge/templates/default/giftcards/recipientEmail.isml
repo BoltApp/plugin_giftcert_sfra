@@ -1,0 +1,45 @@
+<iscontent type="text/html" charset="UTF-8">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>${Resource.msg('email.title','giftCardEmail',null)} <isprint value="${param.senderName}"/></title>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" style="background:#e0e0e0;padding:3.125rem 0;">
+<center>
+<table style="background:#ffffff;border:0.0625rem solid #999999;width:42.5rem;">
+<tr>
+<td style="font-size:0.75rem;font-family:arial;padding:1.25rem 0.625rem;vertical-align:top;">
+
+<h1 style="font-size:1.25rem;font-family:georgia;font-weight:normal;">${Resource.msg('email.greeting','giftCardEmail',null)} <isprint value="${param.recipientName}"/>,</h1>
+
+<p>
+
+<isprint value="${param.senderName}"/>
+
+${Resource.msg('email.messageStart','giftCardEmail',null)} <isprint value="${param.currencyCode}"/> <isprint value="${param.amount}" />
+    ${Resource.msg('email.messageEnd','giftCardEmail',null)}
+    <a href="${URLUtils.https(false, 'Home-Show')}">${Resource.msg('global.storename', 'common', null)}</a>.
+</p>
+
+
+<p><isprint value="${param.senderName}"/> ${Resource.msg('email.leftMessage','giftCardEmail',null)}</p>
+
+<p><isprint value="${param.message}"/></p>
+
+<p>
+${Resource.msg('email.redeemText','giftCardEmail',null)}
+<isprint value="${param.cardNumber}"/>, ${Resource.msg('email.pin','giftCardEmail',null)}: <isprint value="${param.pin}"/>
+</p>
+</td>
+</tr>
+</table>
+</center>
+</td>
+</tr>
+</table>
+</body>
+</html>

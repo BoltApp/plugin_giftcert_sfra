@@ -1,0 +1,18 @@
+<!----------------------------------------------------------------------------------->
+<!-- Load Static Assets -->
+<!----------------------------------------------------------------------------------->
+<isscript>
+    assets.addJs('/js/giftCard.js');
+    assets.addCss('/css/giftCard.css');
+</isscript>
+
+<div class="card payment-form">
+    <div class="card-header">
+        <h2 class="card-header-custom">${Resource.msg('heading.giftCard', 'checkout', null)}</h2>
+    </div>
+    <div class="card-body" id="gift-card-block">
+        <isinclude template="checkout/giftCardPaymentInstruments"/>
+
+        <isinclude template="checkout/billing/giftCardForm"/>
+    </div>
+</div>
