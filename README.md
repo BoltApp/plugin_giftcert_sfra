@@ -8,6 +8,9 @@ It's tested with latest V5 base cartridge (app_storefront_base). It should be co
 
 # Setup steps
 1. Upload the cartridge to your code version.
+   1. add a `dw.json` file as explained [here](https://documentation.b2c.commercecloud.salesforce.com/DOC2/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsfra%2Fb2c_uploading_code.html)
+   2. run `npm install`
+   3. run `sgmf-scripts --uploadCartridge int_gc_sfra`   
 2. Add “int_gc_sfra” to the most left of the cartridge path
 3. Hit the “Giftcards-Purchase” endpoint to open the gift cert purchase page
 

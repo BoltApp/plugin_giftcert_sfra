@@ -1,0 +1,34 @@
+{
+  "name": "int_gc_sfra",
+  "version": "22.1.0",
+  "description": "SFRA Gift Certificate Plugin",
+  "engines": {
+    "node": "^10.22.0",
+    "npm": "^6.14.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:BoltApp/plugin_giftcert_sfra.git"
+  },
+  "homepage": "https://github.com/BoltApp/plugin_giftcert_sfra",
+  "devDependencies": {
+    "sgmf-scripts": "^2.4.1"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "bootstrap": "^4.6.1",
+    "jquery": "^3.6.0"
+  },
+  "packageName": "int_gc_sfra",
+  "lint-staged": {
+    "*.scss": "npx stylelint --no-color",
+    "*.{js,jsx,ts,tsx}": [
+      "npm run eslint:fix",
+      "git add *.*s*"
+    ]
+  },
+  "volta": {
+    "node": "10.22.0",
+    "npm": "6.14.6"
+  }
+}
